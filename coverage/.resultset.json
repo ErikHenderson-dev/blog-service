@@ -1,0 +1,76 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/blog_service/app/controllers/articles_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
+      "/blog_service/app/controllers/categories_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
+      "/blog_service/app/controllers/comments_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
+      "/blog_service/app/models/article.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/blog_service/app/models/category.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/blog_service/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1648236641
+  }
+}
