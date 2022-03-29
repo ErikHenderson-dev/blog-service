@@ -10,27 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220323011240222222) do
-
+ActiveRecord::Schema.define(version: 20_220_323_011_240_222_222) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "articles", force: :cascade do |t|
-    t.integer "category_id"
-    t.string "title"
-    t.string "sub_title"
-    t.datetime "publication_date"
-    t.text "text"
-    t.string "author"
+  create_table 'articles', force: :cascade do |t|
+    t.integer 'category_id'
+    t.string 'title'
+    t.string 'sub_title'
+    t.datetime 'publication_date'
+    t.text 'text'
+    t.string 'author'
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category"
+  create_table 'categories', force: :cascade do |t|
+    t.string 'category'
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "article_id"
-    t.text "comment"
+  create_table 'comments', force: :cascade do |t|
+    t.integer 'article_id'
+    t.text 'comment'
   end
-
 end
