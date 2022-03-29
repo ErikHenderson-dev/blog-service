@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   scope ENV['BASE_HREF'] do
-    # root to: 'home#index'
-
-    resources :articles, only: %i[index]
-    resources :comments, only: %i[index]
-    resources :categories, only: %i[index]
+    resources :articles, only: %i[index show create destroy]
+    resources :comments, only: %i[index show create destroy]
+    resources :categories, only: %i[index show create destroy]
   end
 end
