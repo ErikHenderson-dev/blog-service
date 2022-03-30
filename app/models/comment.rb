@@ -1,6 +1,8 @@
 # fronze_string_literal: true
 
 class Comment < ApplicationRecord
-  self.table_name = 'comments'
-  self.primary_key = 'id'
+  validates :id, :comment, presence: true
+
+  validates :id,
+            numericality: { only_integer: true }
 end
