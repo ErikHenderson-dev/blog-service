@@ -10,21 +10,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    category = Article.find_by(id: allow_params[:id])
+    article = Article.find_by(id: allow_params[:id])
 
-    render json: category
+    render json: article
   end
 
   def create
-    Article.create(
-      id: allow_params[:id],
-      category_id: allow_params[:category_id],
-      title: allow_params[:title],
-      sub_title: allow_params[:sub_title],
-      publication_date: allow_params[:publication_date],
-      text: allow_params[:text],
-      author: allow_params[:author]
-    )
+    article = Creators::ArticleCreator.call(allow_params)
+
+    render json: article
   end
 
   def destroy

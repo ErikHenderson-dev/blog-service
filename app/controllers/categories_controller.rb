@@ -16,7 +16,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    Category.create(id: allow_params[:id], category: allow_params[:category])
+    category = Creators::CategoryCreator.call(allow_params)
+
+    render json: category
   end
 
   def destroy

@@ -16,11 +16,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(
-      id: allow_params[:id],
-      article_id: allow_params[:article_id],
-      comment: allow_params[:comment]
-    )
+    comment = Creators::CommentCreator.call(allow_params)
+
+    render json: comment
   end
 
   def destroy
