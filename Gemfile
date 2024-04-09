@@ -16,12 +16,20 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jwt', '~> 2.2.2'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Security tools
+  gem 'brakeman'
+  gem 'bundler-audit'
+  gem  'ruby_audit'
+
+  # Linting
   gem 'rubocop'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'rubocop-rails'
+
+  # test
   gem 'rspec-rails'
   gem 'simplecov', '~> 0.21.1', require: false
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -29,7 +37,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
  
-  # debug gems
+  # Debug
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'pry-byebug'
 end
