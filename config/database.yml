@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: postgresql-db
+  port: 5432
+  database: blog_service_development
+  username: postgres
+  password: mysecretpassword
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default

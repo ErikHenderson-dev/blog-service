@@ -1,0 +1,41 @@
+version: '3.3'
+services:
+  postgresql-db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: blog_service_development
+
+  redis:
+    image: redis:latest
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  app:
+    build: .
+    command:
+      - /bin/bash
+      - -c
+      - |
+        rm -rf tmp/pids
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        bundle exec rails s -b '0.0.0.0'
+    volumes:
+      - .:/blog-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgresql-db
+      - redis
+
+volumes:
+  postgres_data:
+  redis_data:
