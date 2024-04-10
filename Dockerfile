@@ -1,5 +1,5 @@
 # Usa a imagem oficial do Ruby
-FROM ruby:3.2.3
+FROM ruby:3.2.1
 
 # Define variáveis de ambiente
 ENV RAILS_ENV=development \
