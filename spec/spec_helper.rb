@@ -1,3 +1,4 @@
+require "rails/all"
 require 'simplecov'
 
 RSpec.configure do |config|

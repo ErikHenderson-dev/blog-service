@@ -19,7 +19,7 @@ group :development, :test do
   # Security tools
   gem 'brakeman'
   gem 'bundler-audit'
-  gem  'ruby_audit'
+  gem 'ruby_audit'
 
   # Linting
   gem 'rubocop'
@@ -30,6 +30,7 @@ group :development, :test do
   gem 'simplecov', '~> 0.21.1', require: false
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
