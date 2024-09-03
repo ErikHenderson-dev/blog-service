@@ -104,7 +104,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    method_source (1.0.0)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
@@ -118,10 +118,10 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.1)
-    nokogiri (1.16.3-x86_64-linux)
+    nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     parallel (1.24.0)
-    parser (3.3.0.5)
+    parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
@@ -189,7 +189,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    rubocop (1.63.0)
+    rubocop (1.63.4)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -200,8 +200,8 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.2)
-      parser (>= 3.3.0.4)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
     rubocop-rails (2.24.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -210,13 +210,15 @@ GEM
     ruby-progressbar (1.13.0)
     ruby_audit (2.3.0)
       bundler-audit (~> 0.9.0)
+    shoulda-matchers (6.4.0)
+      activesupport (>= 5.2.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    spring (4.2.0)
+    spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -255,6 +257,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   ruby_audit
+  shoulda-matchers
   simplecov (~> 0.21.1)
   spring
   tzinfo-data
@@ -263,4 +266,4 @@ RUBY VERSION
    ruby 3.2.1p31
 
 BUNDLED WITH
-   2.5.7
+   2.5.9
