@@ -12,6 +12,19 @@ on:
     branches: [main]
 jobs:
   lint:
+    runs-o: unbuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1.137.0
+        with:
+          bundler-cache: true
+      # Add or replace any other lints here
+      - name: Lint Ruby files
+        run: bundle exec rubocop
+
+  security:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,12 +36,10 @@ jobs:
       # Add or replace any other lints here
       - name: Security audit dependencies
         run: bundle exec bundle audit --update
-      - name: Security audit application code
+      - name: Security application code
         run: bundle exec brakeman -q -w2
-      - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
 
-  test:
+  spec:
     runs-on: ubuntu-latest
     services:
       postgres:
