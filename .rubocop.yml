@@ -8,6 +8,8 @@ AllCops:
     - Gemfile.lock
     - Rakefile
     - bin/*
+    - 'vendor/**/*'
+    - 'log/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: true
