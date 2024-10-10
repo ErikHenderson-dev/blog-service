@@ -1,20 +1,20 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
 RSpec.describe CategoryManager::Updater do
   let!(:category) { create(:category, id: 1) }
-  let(:options) {{ id: category.id }}
+  let(:options) { { id: category.id } }
 
   let(:instance) { described_class }
   let(:result) { instance.call(params) }
 
   context 'when update successfuly' do
-    let(:params) { 
+    let(:params) do
       options.merge(
         name: 'name test'
       )
-    }
+    end
 
     it { expect(result).to be_present }
     it { expect(result).to be_a(Category) }
@@ -23,26 +23,26 @@ RSpec.describe CategoryManager::Updater do
 
   context 'when update failure' do
     context 'when name is nil' do
-      let(:params) { 
+      let(:params) do
         options.merge({
-          name: nil
-        }) 
-      }
+                        name: nil
+                      })
+      end
 
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Name can't be blank") }
     end
 
     context 'when category not exist' do
-      let(:params) {{ id: 50 }}
+      let(:params) { { id: 50 } }
 
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Couldn't find Category") }
     end
 
     context 'when category is null' do
-      let(:params) {{ id: nil }}
-  
+      let(:params) { { id: nil } }
+
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Couldn't find Category without an ID") }
     end
@@ -55,7 +55,7 @@ RSpec.describe CategoryManager::Updater do
       end
 
       it { expect(result[:success]).to be false }
-      it { expect(result[:error]).to include("Unexpected error") }
+      it { expect(result[:error]).to include('Unexpected error') }
     end
   end
 end

@@ -1,84 +1,22 @@
 AllCops:
-  TargetRubyVersion: 3.0.2
+  TargetRubyVersion: 3.2.1
   NewCops: enable
   Exclude:
     - db/**/*
     - config/**/*
-    - spec/rails_helper.rb
-    - spec/spec_helper.rb
     - Gemfile
     - Gemfile.lock
     - Rakefile
     - bin/*
-    - vendor/**/*
+    - 'vendor/**/*'
+    - 'log/**/*'
 
-Layout/DotPosition:
-  EnforcedStyle: trailing
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - "spec/**/*"
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
+Style/FrozenStringLiteralComment:
   Enabled: true
 
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
 
-Naming/MethodParameterName:
-  AllowedNames: [io, id, to, _]
-
-Naming/VariableNumber:
-  EnforcedStyle: snake_case
-
 Style/Documentation:
-  Enabled: false
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/GuardClause:
-  MinBodyLength: 3
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/RedundantFetchBlock:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true
-
-Style/EvalWithLocation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
   Enabled: false

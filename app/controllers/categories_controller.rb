@@ -1,4 +1,4 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 class CategoriesController < ApplicationController
   def index
@@ -11,8 +11,8 @@ class CategoriesController < ApplicationController
     category = Category.find_by!(id: params[:id])
 
     render json: category
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
 
   def create
@@ -29,8 +29,8 @@ class CategoriesController < ApplicationController
 
   def destroy
     Category.find(params[:id]).destroy
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
 
   private

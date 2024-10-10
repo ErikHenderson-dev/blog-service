@@ -1,4 +1,6 @@
-require "rails/all"
+# frozen_string_literal: true
+
+require 'rails/all'
 require 'simplecov'
 
 RSpec.configure do |config|

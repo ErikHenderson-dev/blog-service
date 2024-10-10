@@ -1,17 +1,13 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 module CommentManager
   class Creator < ::Base
     def execute
       create_comment
-    rescue  ActiveRecord::RecordInvalid => e
-      Rails.logger.error("Failed to create comment: #{e.message}")
-
-      { success: false, error: e.message }
+    rescue ActiveRecord::RecordInvalid => e
+      handle_error('Failed to create comment', e)
     rescue StandardError => e
-      Rails.logger.error("Unexpected error occurred: #{e.message}")
-
-      { success: false, error: e.message }
+      handle_error('Unexpected error occurred', e)
     end
 
     private

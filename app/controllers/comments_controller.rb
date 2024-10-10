@@ -1,4 +1,4 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 class CommentsController < ApplicationController
   def index
@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
     comment = Comment.find_by!(id: params[:id])
 
     render json: comment
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
 
   def create
@@ -29,8 +29,8 @@ class CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).destroy
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
 
   private
