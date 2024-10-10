@@ -1,28 +1,28 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
 RSpec.describe ArticleManager::Updater do
   let!(:category) { create(:category, id: 1) }
-  let!(:article) { create(:article, category: category) }
-  let(:options) {
+  let!(:article) { create(:article, category:) }
+  let(:options) do
     {
       id: article.id
     }
-  }
+  end
 
   let(:instance) { described_class }
   let(:result) { instance.call(params) }
 
   context 'when update successfuly' do
     let(:category_id) { create(:category, id: 2).id }
-    let(:params) { 
+    let(:params) do
       options.merge(
-        category_id: category_id,
+        category_id:,
         title: 'teste',
         sub_title: 'Principais personagens'
       )
-    }
+    end
 
     it { expect(result).to be_present }
     it { expect(result).to be_a(Article) }
@@ -33,33 +33,33 @@ RSpec.describe ArticleManager::Updater do
 
   context 'when update failure' do
     context 'when category_id is nil' do
-      let(:params) { 
+      let(:params) do
         options.merge({
-          category_id: nil
-        }) 
-      }
+                        category_id: nil
+                      })
+      end
 
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Category can't be blank") }
     end
 
     context 'when category_id not exist' do
-      let(:params) { 
+      let(:params) do
         options.merge({
-          category_id: 2
-        }) 
-      }
+                        category_id: 2
+                      })
+      end
 
       it { expect(result[:success]).to be false }
-      it { expect(result[:error]).to include("Category must exist") }
+      it { expect(result[:error]).to include('Category must exist') }
     end
 
     context 'when title is nil' do
-      let(:params) { 
+      let(:params) do
         options.merge({
-          title: nil
-        })
-      }
+                        title: nil
+                      })
+      end
 
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Title can't be blank") }
@@ -74,12 +74,12 @@ RSpec.describe ArticleManager::Updater do
       end
 
       it { expect(result[:success]).to be false }
-      it { expect(result[:error]).to include("Unexpected error") }
+      it { expect(result[:error]).to include('Unexpected error') }
     end
   end
 
   context 'when artcile is null' do
-    let(:article) { OpenStruct.new(id: nil) }
+    let(:article) { Article.new }
     let(:params) { options }
 
     it { expect(result[:success]).to be false }

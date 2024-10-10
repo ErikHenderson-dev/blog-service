@@ -1,22 +1,22 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
 RSpec.describe CommentManager::Updater do
   let(:category) { create(:category, id: 1) }
-  let(:article) { create(:article, category: category) }
-  let(:comment) { create(:comment, article: article) }
-  let(:options) {{ id: comment.id }}
+  let(:article) { create(:article, category:) }
+  let(:comment) { create(:comment, article:) }
+  let(:options) { { id: comment.id } }
 
   let(:instance) { described_class }
   let(:result) { instance.call(params) }
 
   context 'when update successfuly' do
-    let(:params) { 
+    let(:params) do
       options.merge(
         text: 'comment updated'
       )
-    }
+    end
 
     it { expect(result).to be_present }
     it { expect(result).to be_a(Comment) }
@@ -25,11 +25,11 @@ RSpec.describe CommentManager::Updater do
 
   context 'when update failure' do
     context 'when text is nil' do
-      let(:params) { 
+      let(:params) do
         options.merge({
-          text: nil
-        }) 
-      }
+                        text: nil
+                      })
+      end
 
       it { expect(result[:success]).to be false }
       it { expect(result[:error]).to include("Text can't be blank") }
@@ -43,12 +43,12 @@ RSpec.describe CommentManager::Updater do
       end
 
       it { expect(result[:success]).to be false }
-      it { expect(result[:error]).to include("Unexpected error") }
+      it { expect(result[:error]).to include('Unexpected error') }
     end
   end
 
   context 'when artcile is null' do
-    let(:comment) { OpenStruct.new(id: nil) }
+    let(:comment) { Comment.new }
     let(:params) { options }
 
     it { expect(result[:success]).to be false }

@@ -1,4 +1,4 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 class ArticlesController < ApplicationController
   def index
@@ -6,15 +6,15 @@ class ArticlesController < ApplicationController
 
     render json: articles
   end
-  
+
   def show
     article = Article.find_by!(id: params[:id])
 
     render json: article
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
-  
+
   def create
     article = ::ArticleManager::Creator.call(allow_params)
 
@@ -29,8 +29,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     Article.find(params[:id]).destroy
-  rescue ActiveRecord::RecordNotFound => e
-    render plain: 'Record not found', status: :not_found 
+  rescue ActiveRecord::RecordNotFound
+    render plain: 'Record not found', status: :not_found
   end
 
   private

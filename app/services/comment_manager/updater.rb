@@ -1,21 +1,13 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 module CommentManager
   class Updater < ::Base
     def execute
       update_comment
-    rescue ActiveRecord::RecordNotFound => e
-      Rails.logger.error("Failed to update comment: #{e.message}")
-
-      { success: false, error: e.message }
-    rescue  ActiveRecord::RecordInvalid => e
-      Rails.logger.error("Failed to update comment: #{e.message}")
-
-      { success: false, error: e.message }
+    rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid => e
+      handle_error('Failed to update comment', e)
     rescue StandardError => e
-      Rails.logger.error("Unexpected error occurred: #{e.message}")
-
-      { success: false, error: e.message }
+      handle_error('Unexpected error occurred', e)
     end
 
     private

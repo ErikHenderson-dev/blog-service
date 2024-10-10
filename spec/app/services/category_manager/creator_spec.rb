@@ -1,4 +1,4 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -7,7 +7,7 @@ RSpec.describe CategoryManager::Creator do
   let(:result) { instance.call(params) }
 
   context 'when create successfuly' do
-    let(:params) {{ name: 'Anime' }}
+    let(:params) { { name: 'Anime' } }
 
     it { expect(result).to be_present }
     it { expect(result).to be_a(Category) }
@@ -15,8 +15,8 @@ RSpec.describe CategoryManager::Creator do
   end
 
   context 'when create failure' do
-    let(:params) {{ name: category_name }}
-    
+    let(:params) { { name: category_name } }
+
     context 'when category_name is nil' do
       let(:category_name) { nil }
 
@@ -31,7 +31,7 @@ RSpec.describe CategoryManager::Creator do
       end
 
       it { expect(result[:success]).to be false }
-      it { expect(result[:error]).to include("Unexpected error") }
+      it { expect(result[:error]).to include('Unexpected error') }
     end
   end
 end

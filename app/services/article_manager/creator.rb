@@ -1,17 +1,13 @@
-# fronze_string_literal: true
+# frozen_string_literal: true
 
 module ArticleManager
   class Creator < ::Base
     def execute
       create_article
-    rescue  ActiveRecord::RecordInvalid => e
-      Rails.logger.error("Failed to create article: #{e.message}")
-
-      { success: false, error: e.message }
+    rescue ActiveRecord::RecordInvalid => e
+      handle_error('Failed to create article', e)
     rescue StandardError => e
-      Rails.logger.error("Unexpected error occurred: #{e.message}")
-
-      { success: false, error: e.message }
+      handle_error('Unexpected error occurred', e)
     end
 
     private
