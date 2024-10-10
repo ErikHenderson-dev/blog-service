@@ -22,6 +22,7 @@ group :development, :test do
   gem 'ruby_audit'
 
   # Linting
+  gem 'panolint'
   gem 'rubocop'
   gem 'rubocop-rails'
 
