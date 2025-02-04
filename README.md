@@ -1,24 +1,34 @@
-# README
+# Blog Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto de blog desenvolvido com Ruby on Rails. A API permite que os usuários criem artigos, organizem-nos em categorias e interajam com o conteúdo por meio de comentários.
 
-Things you may want to cover:
+## Funcionalidades
 
-* Ruby version
+**Artigos:** Autores podem criar artigos com título, subtítulo e conteúdo.
+**Categorias:** Os artigos podem ser organizados em categorias.
+**Comentários:** Usuários podem deixar comentários nos artigos, criando interação entre os leitores e autores.
 
-* System dependencies
+## Pré-requisitos
 
-* Configuration
+Antes de rodar a aplicação, certifique-se de ter os seguintes itens instalados:
 
-* Database creation
+- **Docker**: Para criar e gerenciar containers de forma fácil e consistente. Você pode instalar o Docker a partir do [site oficial](https://www.docker.com/get-started).
+- **Docker Compose**: Para orquestrar multi-containers, usado na configuração da aplicação. Normalmente já vem instalado junto com o Docker
 
-* Database initialization
+## Instalação
 
-* How to run the test suite
+1. **Clone o repositório:**
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+    git clone https://github.com/usuario/nome-do-repositorio.git
+```
 
-* Deployment instructions
+2. **Abra o terminal e acesse o diretório onde o projeto foi clonado:**
+```
+    cd /minha-pasta/blog-service
+```
 
-* ...
+3. **Ainda no terminal, rode o comando abaixo:**
+```
+    docker-compose up
+```
